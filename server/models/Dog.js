@@ -1,9 +1,12 @@
+//require the Mongo DB library for nodejs
 const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
 
+//variable to hold model
 let DogModel = {};
 
+//Set parameters for a dog
 const DogSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -31,6 +34,7 @@ const DogSchema = new mongoose.Schema({
   },
 });
 
+//static method attached to the model
 DogSchema.statics.findByName = (name, callback) => {
   const search = {
     name,
@@ -39,7 +43,9 @@ DogSchema.statics.findByName = (name, callback) => {
   return DogModel.findOne(search, callback);
 };
 
+//Create dog model based on Schema
 DogModel = mongoose.model('Dog', DogSchema);
 
+//export the public properties
 module.exports.DogModel = DogModel;
 module.exports.DogSchema = DogSchema;

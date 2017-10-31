@@ -164,9 +164,7 @@ const getName = (req, res) => {
 };
 
 const getDogName = (req, res) => {
-  // res.json returns json to the page.
-  // Since this sends back the data through HTTP
-  // you can't send any more data to this user until the next response
+//same as getName
   res.json({ name: lastDog.name });
 };
 
@@ -194,14 +192,6 @@ const setName = (req, res) => {
     name,
     bedsOwned: req.body.beds,
   };
-
-  /*
-  const dogData = {
-    name,
-    breed,
-    age
-  };
-*/
   // create a new object of CatModel with the object to save
   const newCat = new Cat(catData);
 
@@ -222,11 +212,13 @@ const setName = (req, res) => {
   return res;
 };
 
+//set dog's name
 const setDogName = (req, res) => {
   if (!req.body.name || !req.body.breed || !req.body.age) {
     return res.status(400).json({ error: 'Name, Age, and type of Breed are all required' });
   }
 
+  //incorporate the dog's breed as well
   const name = `${req.body.name}`;
   const breed = `${req.body.breed}`;
   const dogData = {
@@ -286,6 +278,7 @@ const searchName = (req, res) => {
   });
 };
 
+//Search for dog's name
 const searchDogName = (req, res) => {
   if (!req.query.name) {
     return res.json({ error: 'Name is required to perform a search' });
