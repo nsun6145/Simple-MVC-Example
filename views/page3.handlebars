@@ -17,10 +17,8 @@
   <a href="/page4">Page 4</a>
   
   <form action="/setDogName" method="POST">
-    <label for="firstname">First name:</label>
-    <input type="text" name="firstname" value="">
-    <label for="lastname">Last Name: </label>
-    <input type="text" name="lastname" value="">
+    <label for="name">First name:</label>
+    <input type="text" name="name" value="">
     <label for="breed">Breed:</label>
     <input type = "text" name ="breed" value=""> 
     <label for= "age">Age:</label>
@@ -29,12 +27,7 @@
   </form>
   <br/>
   <br/>
-  <form action="/updateLast" method="POST">
-    <input type="submit" value="Update Last">
-  </form>
-  <br/>
-  <br/>
-  <form action="findByName" method="GET">
+  <form action="findByDogName" method="GET">
     <label for="name">Name to search for:</label>
     <input type="text" name="name" value="">
     <input type="submit" value="Submit">

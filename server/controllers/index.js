@@ -132,12 +132,22 @@ const hostPage3 = (req, res) => {
     // in the app.js as jade. Calling res.render('index')
     // actually calls index.jade. A second parameter of JSON can be passed
     // into the jade to be used as variables with #{varName}
+  res.render('page3');
+};
+
+const hostPage4 = (req, res) => {
+  // res.render takes a name of a page to render.
+  // These must be in the folder you specified as views in your main app.js file
+  // Additionally, you don't need .jade because you registered
+  // the file type in the app.js as jade. Calling res.render('index')
+  // actually calls index.jade. A second parameter of JSON can be
+  // passed into the jade to be used as variables with #{varName}
   const callback = (err, docs) => {
     if (err) {
       return res.json({ err }); // if error, return it
     }
     // return success
-    return res.render('page3', { dogs: docs });
+    return res.render('page4', { dogs: docs });
   };
   // res.render('page3');
   readAllDogs(req, res, callback);
@@ -342,6 +352,7 @@ module.exports = {
   page1: hostPage1,
   page2: hostPage2,
   page3: hostPage3,
+  page4: hostPage4,
   readCat,
   readDog,
   getName,
